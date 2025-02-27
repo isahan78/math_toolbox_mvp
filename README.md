@@ -27,6 +27,17 @@ This project demonstrates a multi-turn LLM-based system that:
 2. **Set Your OpenAI Key**  
    ```bash
    export OPENAI_API_KEY="sk-..."   # or set openai.api_key in code
-3. **Run*  
+3. **Run**
    ```bash
    streamlit run app.py
+4.	Open the Streamlit URL in your browser (usually http://localhost:8501).
+
+Future Work
+	1.	Semantic Caching & Generalization
+	•	Instead of matching user questions by exact string, we can store a semantic embedding of each question. Then, we can retrieve the nearest plan if a new query is “similar enough,” reusing the same Virtual Tool for a broader class of problems.
+	2.	Advanced Tool Chaining
+	•	Allow referencing prior step results in subsequent steps (e.g., args: ["$0", 2]) for more complex multi-step solutions. This helps solve multi-stage word problems gracefully.
+	3.	Scaling the Application
+	•	Persistent Storage: For production, store Virtual Tools (memoized plans) in a database (SQL or NoSQL) to handle concurrency and ensure the cache persists across restarts.
+	•	Distributed Architecture: Split the system into microservices — e.g., a dedicated LLM “Planner” microservice, a “Tool Execution” service for arithmetic, and a shared “Memoization DB” for caching plans. This allows multiple users or processes to leverage the same multi-agent pipeline at scale.
+	•	Load Balancing: If usage grows, run multiple Planner replicas behind a load balancer. The caching system ensures repeated queries are answered quickly, reducing LLM calls.
