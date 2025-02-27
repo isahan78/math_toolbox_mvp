@@ -5,8 +5,6 @@ This project demonstrates a multi-turn LLM-based system that:
 - Uses **unreliable** operations (SUM, PRODUCT) with fallback checks.
 - **Memoizes** successful multi-step plans into **Virtual Tools**, so repeated questions can skip the LLM and run faster.
 
-**Demo Video**: [Click here for a quick Loom demo](https://www.loom.com/share/EXAMPLE_PLACEHOLDER_LINK)
-
 ### `multi_turn_virtual_tools.py`
 - Implements **agent** logic and tool discovery:
   - The LLM is allowed to ask: “Which tools exist?” or “Tell me about tool X.”
