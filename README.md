@@ -14,7 +14,7 @@ This project demonstrates a multi-turn LLM-based system that:
   - SUM/PRODUCT are **unreliable**; other operations are **reliable**.
 - Manages **virtual tool** memoization: after enough repeated successes for a given question signature, it stores the entire plan and reuses it directly next time.
 
-### `streamlit_multi_turn_app.py`
+### `app.py`
 - A **Streamlit UI** that prompts for a math question.
 - Calls `ask_system(question)` from `multi_turn_virtual_tools.py`.
 - Displays the final answer, plus whether it used a **fresh** LLM plan or a **virtual tool**.
@@ -24,3 +24,9 @@ This project demonstrates a multi-turn LLM-based system that:
 1. **Install Dependencies**  
    ```bash
    pip install streamlit openai
+2. **Set Your OpenAI Key**  
+   ```bash
+   export OPENAI_API_KEY="sk-..."   # or set openai.api_key in code
+3. **Run*  
+   ```bash
+   streamlit run app.py
