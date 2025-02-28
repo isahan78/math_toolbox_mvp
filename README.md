@@ -5,7 +5,7 @@ This project demonstrates a multi-turn LLM-based system that:
 - Uses **unreliable** operations (SUM, PRODUCT) with fallback checks.
 - **Memoizes** successful multi-step plans into **Virtual Tools**, so repeated questions can skip the LLM and run faster.
 
-### `multi_turn_virtual_tools.py`
+### `multi_agent_toolbox.py`
 - Implements **agent** logic and tool discovery:
   - The LLM is allowed to ask: “Which tools exist?” or “Tell me about tool X.”
   - Each tool doc is stored in a **separate variable** to avoid a mega-prompt.
@@ -14,7 +14,7 @@ This project demonstrates a multi-turn LLM-based system that:
 
 ### `app.py`
 - A **Streamlit UI** that prompts for a math question.
-- Calls `ask_system(question)` from `multi_turn_virtual_tools.py`.
+- Calls `ask_system(question)` from `multi_agent_toolbox.py`.
 - Displays the final answer, plus whether it used a **fresh** LLM plan or a **virtual tool**.
 
 ## Running the Software
